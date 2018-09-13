@@ -5,17 +5,18 @@ import android.animation.AnimatorInflater;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.database.DataSetObserver;
 import android.os.Build;
 import android.support.annotation.AnimatorRes;
 import android.support.annotation.DrawableRes;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 
+/**
+ * 该控件与viewpager分离，可与其它控件配合使用
+ */
 public class SingleIndicator extends LinearLayout {
 
     private final static int DEFAULT_INDICATOR_WIDTH = 5;
@@ -239,7 +240,8 @@ public class SingleIndicator extends LinearLayout {
     }
 
     private class ReverseInterpolator implements Interpolator {
-        @Override public float getInterpolation(float value) {
+        @Override
+        public float getInterpolation(float value) {
             return Math.abs(1.0f - value);
         }
     }

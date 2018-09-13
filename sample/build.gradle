@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '24.0.3'
+    compileSdkVersion parent.ext.compileSdkVersion
+    buildToolsVersion parent.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "me.relex.circleindicator.sample"
-        minSdkVersion 11
-        targetSdkVersion 24
+        minSdkVersion 14
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -25,9 +25,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:design:24.2.1'
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:recyclerview-v7:24.2.1'
-    compile project(':circleindicator')
-    compile project(':LoopingViewPager')
+    implementation "com.android.support:design:${parent.ext.libraryVersion}"
+    implementation "com.android.support:appcompat-v7:${parent.ext.libraryVersion}"
+    implementation "com.android.support:recyclerview-v7:${parent.ext.libraryVersion}"
+    implementation project(':circleindicator')
+    implementation project(':LoopingViewPager')
 }

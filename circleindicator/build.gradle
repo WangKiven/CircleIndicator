@@ -3,12 +3,12 @@ apply plugin: 'com.android.library'
 version = "1.2.2"
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '24.0.3'
+    compileSdkVersion parent.ext.compileSdkVersion
+    buildToolsVersion parent.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 11
-        targetSdkVersion 24
+        minSdkVersion 14
+        targetSdkVersion 28
         versionCode 122
         versionName version
     }
@@ -22,9 +22,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-annotations:24.2.1'
-    compile 'com.android.support:support-core-ui:24.2.1'
-    provided 'com.android.support:design:24.2.1'
+    implementation "com.android.support:support-annotations:${parent.ext.libraryVersion}"
+    implementation "com.android.support:support-core-ui:${parent.ext.libraryVersion}"
+    implementation "com.android.support:design:${parent.ext.libraryVersion}"
 }
 
 //apply from: "upload-jcenter.gradle"

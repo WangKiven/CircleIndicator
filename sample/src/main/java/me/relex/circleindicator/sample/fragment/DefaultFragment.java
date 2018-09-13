@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import me.relex.circleindicator.CircleIndicator;
+import me.relex.circleindicator.SingleIndicator;
 import me.relex.circleindicator.sample.SamplePagerAdapter;
 import me.relex.circleindicator.sample.R;
 
@@ -25,5 +26,25 @@ public class DefaultFragment extends Fragment {
         viewpager.setAdapter(new SamplePagerAdapter());
         indicator.setViewPager(viewpager);
         viewpager.setCurrentItem(2);
+
+
+        final SingleIndicator singleIndicator = view.findViewById(R.id.singleIndicator);
+        singleIndicator.setCount(10);
+        viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                singleIndicator.setPosition(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 }

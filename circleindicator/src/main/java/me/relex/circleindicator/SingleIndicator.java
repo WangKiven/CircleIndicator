@@ -167,6 +167,7 @@ public class SingleIndicator extends LinearLayout {
 
     public void setPosition(int position) {
         if (count < 1 || position >= count || position < 0 || position == mLastPosition) {
+            mLastPosition = position;
             return;
         }
         if (mAnimatorIn.isRunning()) {

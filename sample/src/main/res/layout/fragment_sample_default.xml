@@ -18,7 +18,7 @@
     <me.relex.circleindicator.SingleIndicator
         android:id="@+id/singleIndicator"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="10dp"
         android:layout_gravity="top"
         android:layout_marginTop="48dp"/>
 

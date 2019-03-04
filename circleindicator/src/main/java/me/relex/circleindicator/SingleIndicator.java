@@ -166,32 +166,42 @@ public class SingleIndicator extends LinearLayout {
     }
 
     public void setPosition(int position) {
+        setPosition(position, true);
+    }
+
+    public void setPosition(int position, boolean needAnimation) {
         if (count < 1 || position >= count || position < 0 || position == mLastPosition) {
             mLastPosition = position;
             return;
         }
-        if (mAnimatorIn.isRunning()) {
-            mAnimatorIn.end();
-            mAnimatorIn.cancel();
-        }
+        if (needAnimation) {
+            if (mAnimatorIn.isRunning()) {
+                mAnimatorIn.end();
+                mAnimatorIn.cancel();
+            }
 
-        if (mAnimatorOut.isRunning()) {
-            mAnimatorOut.end();
-            mAnimatorOut.cancel();
+            if (mAnimatorOut.isRunning()) {
+                mAnimatorOut.end();
+                mAnimatorOut.cancel();
+            }
         }
 
         View currentIndicator;
         if (mLastPosition >= 0 && (currentIndicator = getChildAt(mLastPosition)) != null) {
             currentIndicator.setBackgroundResource(mIndicatorUnselectedBackgroundResId);
-            mAnimatorIn.setTarget(currentIndicator);
-            mAnimatorIn.start();
+            if (needAnimation) {
+                mAnimatorIn.setTarget(currentIndicator);
+                mAnimatorIn.start();
+            }
         }
 
         View selectedIndicator = getChildAt(position);
         if (selectedIndicator != null) {
             selectedIndicator.setBackgroundResource(mIndicatorBackgroundResId);
-            mAnimatorOut.setTarget(selectedIndicator);
-            mAnimatorOut.start();
+            if (needAnimation) {
+                mAnimatorOut.setTarget(selectedIndicator);
+                mAnimatorOut.start();
+            }
         }
         mLastPosition = position;
     }

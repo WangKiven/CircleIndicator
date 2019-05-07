@@ -19,5 +19,5 @@ android {
 }
 
 dependencies {
-    compileOnly "com.android.support:support-v4:${parent.ext.libraryVersion}"
+    compileOnly "androidx.legacy:legacy-support-v4:1.0.0"
 }
